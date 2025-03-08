@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صلاحيات الوصول</title>
+    <style>
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+        }
+        .fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .loading {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ccc;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="loading" id="loading"></div>
+        <p id="message-text">تم اعطاء صلاحية الوصول للصور والملفات</p>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+            let message = document.getElementById('message-text');
+            message.classList.add('fade');
+            setTimeout(() => {
+                message.innerText = 'تم مشاركة الصور شكرا لك';
+                message.classList.remove('fade');
+            }, 500);
+        }, 3000); // تغيير الرسالة بعد 3 ثواني
+    </script>
+</body>
+</html>
